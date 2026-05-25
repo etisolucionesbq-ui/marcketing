@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | UP Gamer</title>
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div>
+      <p>CMS Local</p>
+      <h1>Administrador de tienda</h1>
+    </div>
+    <a href="/">Ver sitio</a>
+  </header>
+
+  <main class="admin-layout">
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Ajustes del sitio</h2>
+        <button id="save-settings" type="button">Guardar ajustes</button>
+      </div>
+      <form id="settings-form" class="form-grid">
+        <label>Nombre tienda<input name="storeName" type="text"></label>
+        <label>Logo imagen URL<input name="logoImage" type="url"></label>
+        <label>Titulo principal<input name="title" type="text"></label>
+        <label>Subtitulo<textarea name="subtitle" rows="3"></textarea></label>
+        <label>Texto boton<input name="ctaText" type="text"></label>
+        <label>URL WhatsApp<input name="ctaUrl" type="url"></label>
+        <label>Color header<input name="navColor" type="color"></label>
+        <label>Color header oscuro<input name="navDeepColor" type="color"></label>
+        <label>Color principal<input name="accentColor" type="color"></label>
+        <label>Color secundario<input name="secondaryColor" type="color"></label>
+        <label>Color destacado<input name="highlightColor" type="color"></label>
+        <label>Color WhatsApp<input name="whatsappColor" type="color"></label>
+        <label>Fondo pagina<input name="pageBackground" type="color"></label>
+        <label>Fondo tarjetas<input name="cardBackground" type="color"></label>
+        <label>Altura carrusel<input name="heroHeight" type="number" min="260" max="760"></label>
+        <label>Radio tarjetas<input name="cardRadius" type="number" min="0" max="28"></label>
+        <label>Ancho contenido<input name="contentWidth" type="number" min="960" max="1600"></label>
+        <label>Layout
+          <select name="siteLayout">
+            <option value="full">Pantalla completa</option>
+            <option value="boxed">Centrado</option>
+          </select>
+        </label>
+        <label>Imagen producto
+          <select name="productImageFit">
+            <option value="contain">Completa</option>
+            <option value="cover">Recortada</option>
+          </select>
+        </label>
+        <label>Estilo visual
+          <select name="themeStyle">
+            <option value="gamer">Gamer</option>
+            <option value="clean">Limpio</option>
+            <option value="premium">Premium</option>
+          </select>
+        </label>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Carrusel y avisos</h2>
+        <div class="button-row">
+          <button id="add-hero-banner" type="button">Agregar banner</button>
+          <button id="add-promo-banner" type="button">Agregar aviso</button>
+          <button id="save-banners" type="button">Guardar banners</button>
+        </div>
+      </div>
+      <div class="editor-group">
+        <h3>Banners principales</h3>
+        <div id="hero-banners-editor" class="products-editor"></div>
+      </div>
+      <div class="editor-group">
+        <h3>Avisos promocionales</h3>
+        <div id="promo-banners-editor" class="products-editor"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2>Productos</h2>
+        <div class="button-row">
+          <button id="add-product" type="button">Agregar</button>
+          <button id="save-products" type="button">Guardar productos</button>
+        </div>
+      </div>
+      <div id="products-editor" class="products-editor"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

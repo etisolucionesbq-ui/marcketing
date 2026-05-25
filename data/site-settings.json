@@ -1,0 +1,22 @@
+{
+  "storeName": "UP Gamer",
+  "logoImage": "",
+  "title": "Ofertas",
+  "subtitle": "Equipos, combos y accesorios gamer listos para comprar por WhatsApp.",
+  "ctaText": "compra ya",
+  "ctaUrl": "https://wa.me/573000000000",
+  "navColor": "#071735",
+  "navDeepColor": "#041024",
+  "accentColor": "#00c8ee",
+  "secondaryColor": "#ff6b2b",
+  "highlightColor": "#ed2e8f",
+  "whatsappColor": "#18d36c",
+  "pageBackground": "#f4f6fb",
+  "cardBackground": "#ffffff",
+  "heroHeight": "420",
+  "cardRadius": "8",
+  "contentWidth": "1180",
+  "siteLayout": "full",
+  "productImageFit": "contain",
+  "themeStyle": "gamer"
+}

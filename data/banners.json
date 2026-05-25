@@ -1,0 +1,40 @@
+{
+  "hero": [
+    {
+      "kicker": "Ofertas activas",
+      "title": "Setup gamer al maximo",
+      "subtitle": "Portatiles, torres y accesorios listos para comprar por WhatsApp.",
+      "buttonText": "Ver ofertas",
+      "buttonUrl": "#catalogo",
+      "image": "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=1600&q=80"
+    },
+    {
+      "kicker": "Nuevas referencias",
+      "title": "Torres y combos RGB",
+      "subtitle": "Arma tu equipo con componentes seleccionados para jugar, editar y crear.",
+      "buttonText": "Explorar catalogo",
+      "buttonUrl": "#catalogo",
+      "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1600&q=80"
+    },
+    {
+      "kicker": "Promos de temporada",
+      "title": "Monitores y perifericos",
+      "subtitle": "Mejora tu escritorio con pantallas, audifonos, teclados y mouse gamer.",
+      "buttonText": "Comprar ahora",
+      "buttonUrl": "#catalogo",
+      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80"
+    }
+  ],
+  "promos": [
+    {
+      "title": "Tu experiencia gamer",
+      "subtitle": "al maximo nivel",
+      "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "title": "Setup listo",
+      "subtitle": "para jugar y crear",
+      "image": "https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
