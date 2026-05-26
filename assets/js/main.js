@@ -306,33 +306,61 @@ function renderSettings() {
 }
 
 async function loadSite() {
+
   try {
+
     const loadJson = async (apiPath, staticPath) => {
-      const response = await fetch(apiPath).catch(() => null);
-      if (response && response.ok) return response.json();
+
+      try {
+
+        const response = await fetch(apiPath);
+
+        if (response.ok) {
+          return await response.json();
+        }
+
+      } catch (error) {
+        console.warn("API fallback:", apiPath, error);
+      }
+
       const fallback = await fetch(staticPath);
-      if (!fallback.ok) throw new Error("Data not found");
-      return fallback.json();
+
+      if (!fallback.ok) {
+        throw new Error(`No se pudo cargar ${staticPath}`);
+      }
+
+      return await fallback.json();
     };
 
     const [productsData, settingsData, bannersData] = await Promise.all([
-      loadJson("/api/products", "data/products.json"),
-      loadJson("/api/settings", "data/site-settings.json"),
-      loadJson("/api/banners", "data/banners.json")
+      loadJson("/api/products", "./data/products.json"),
+      loadJson("/api/settings", "./data/site-settings.json"),
+      loadJson("/api/banners", "./data/banners.json")
     ]);
 
-    const rawProducts = Array.isArray(productsData) ? productsData : productsData.items || [];
+    const rawProducts =
+      Array.isArray(productsData)
+        ? productsData
+        : productsData.items || [];
+
     state.products = rawProducts.map((product, index) => ({
       ...product,
       id: String(product.id || `${index}-${product.name}`)
     }));
-    state.settings = settingsData;
+
+    state.settings = settingsData || {};
+
     state.banners = {
-      hero: Array.isArray(bannersData.hero) ? bannersData.hero : [],
-      promos: Array.isArray(bannersData.promos) ? bannersData.promos : []
+      hero: Array.isArray(bannersData.hero)
+        ? bannersData.hero
+        : [],
+      promos: Array.isArray(bannersData.promos)
+        ? bannersData.promos
+        : []
     };
 
     readCart();
+
     renderSettings();
     renderHeroCarousel();
     renderPromos();
@@ -340,8 +368,15 @@ async function loadSite() {
     renderProducts();
     renderCart();
     startCarousel();
-  } catch {
-    document.getElementById("products-grid").innerHTML = `<p class="empty-state">No se pudo cargar el catalogo.</p>`;
+
+    console.log("UP Gamer cargado correctamente");
+
+  } catch (error) {
+
+    console.error("ERROR LOAD SITE:", error);
+
+    document.getElementById("products-grid").innerHTML =
+      `<p class="empty-state">No se pudo cargar el catalogo.</p>`;
   }
 }
 
