@@ -10,7 +10,7 @@
 <body>
   <header class="site-header">
     <div class="header-main">
-      <button class="icon-button" type="button" aria-label="Abrir menu">
+    <button id="menu-open" class="icon-button" type="button" aria-label="Abrir menu">
         <span></span><span></span><span></span>
       </button>
       <a class="logo" href="/">
@@ -28,7 +28,19 @@
     </div>
     <nav id="category-nav" class="category-nav" aria-label="Categorias"></nav>
   </header>
+<div id="menu-backdrop" class="menu-backdrop" hidden></div>
 
+<aside id="side-menu" class="side-menu" aria-hidden="true">
+  <div class="side-menu-head">
+    <h2>Menú</h2>
+
+    <button id="menu-close" class="side-close" type="button">
+      ✕
+    </button>
+  </div>
+
+  <nav id="side-menu-nav" class="side-menu-nav"></nav>
+</aside>
   <main>
     <section class="hero" aria-label="Carrusel principal">
       <div id="hero-track" class="hero-track"></div>
@@ -87,13 +99,27 @@
     </div>
   </aside>
 
-  <button id="whatsapp-float" class="whatsapp-float" type="button" aria-label="Abrir carrito">
-    <span class="whatsapp-icon" aria-hidden="true">
-      <svg viewBox="0 0 32 32" focusable="false">
-        <path d="M16 3.5A12.4 12.4 0 0 0 5.3 22.2L4 28l5.9-1.5A12.4 12.4 0 1 0 16 3.5Zm0 22.5c-2 0-3.9-.6-5.5-1.6l-.4-.2-3.5.9.9-3.4-.2-.4A10 10 0 1 1 16 26Zm5.7-7.5c-.3-.2-1.8-.9-2.1-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4.1-3.6c-.3-.5.3-.5.8-1.7.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.9 1.2 3.3 1.4 3.5a11.4 11.4 0 0 0 4.5 4 10.1 10.1 0 0 0 2.8 1c1.2.2 2.2.1 3-.2.9-.4 1.8-1.5 2-2.2.2-.8.2-1.4.2-1.6s-.3-.3-.6-.5Z"/>
-      </svg>
-    </span>
-  </button>
+ 
+
+
+
+<button id="whatsapp-float" class="whatsapp-float" type="button" aria-label="Abrir carrito">
+
+  <span class="cart-float-icon" aria-hidden="true">
+
+    <svg viewBox="0 0 24 24" focusable="false">
+      <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2
+      2-.9 2-2-.9-2-2-2Zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2
+      2-.9 2-2-.9-2-2-2ZM7.2 14h9.9c.8 0 1.5-.5
+      1.8-1.2l3.1-7.3c.1-.2.1-.3.1-.5
+      0-.6-.4-1-1-1H5.2L4.3 2H1v2h2l3.6
+      7.6-1.3 2.4c-.2.3-.3.7-.3 1
+      0 1.1.9 2 2 2h12v-2H7.4l-.2-.3.9-1.7Z"/>
+    </svg>
+
+  </span>
+
+</button>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

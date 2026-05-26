@@ -404,3 +404,84 @@ document.addEventListener("keydown", (event) => {
 });
 
 loadSite();
+/* =========================
+   MENU LATERAL
+========================= */
+
+const menuOpen = document.getElementById("menu-open");
+const menuClose = document.getElementById("menu-close");
+const sideMenu = document.getElementById("side-menu");
+const menuBackdrop = document.getElementById("menu-backdrop");
+
+if (menuOpen && menuClose && sideMenu && menuBackdrop) {
+
+  menuOpen.addEventListener("click", () => {
+    sideMenu.classList.add("open");
+    sideMenu.setAttribute("aria-hidden", "false");
+    menuBackdrop.hidden = false;
+  });
+
+  menuClose.addEventListener("click", closeMenu);
+
+  menuBackdrop.addEventListener("click", closeMenu);
+
+  function closeMenu() {
+    sideMenu.classList.remove("open");
+    sideMenu.setAttribute("aria-hidden", "true");
+    menuBackdrop.hidden = true;
+  }
+}
+
+/* =========================
+   SINCRONIZAR CATEGORIAS
+========================= */
+
+const categoryNav = document.getElementById("category-nav");
+const sideMenuNav = document.getElementById("side-menu-nav");
+
+if (categoryNav && sideMenuNav) {
+
+  const syncMenu = () => {
+
+    const items = categoryNav.querySelectorAll("button, a");
+
+    if (!items.length) {
+      setTimeout(syncMenu, 300);
+      return;
+    }
+
+    sideMenuNav.innerHTML = "";
+
+    items.forEach((item, index) => {
+
+      const clone = item.cloneNode(true);
+
+      clone.addEventListener("click", () => {
+
+        const updatedItems =
+          categoryNav.querySelectorAll("button, a");
+
+        if (updatedItems[index]) {
+          updatedItems[index].click();
+        }
+
+        sideMenu.classList.remove("open");
+        sideMenu.setAttribute("aria-hidden", "true");
+        menuBackdrop.hidden = true;
+      });
+
+      sideMenuNav.appendChild(clone);
+    });
+  };
+
+  syncMenu();
+
+  const observer = new MutationObserver(() => {
+    syncMenu();
+  });
+
+  observer.observe(categoryNav, {
+    childList: true,
+    subtree: true
+  });
+}
