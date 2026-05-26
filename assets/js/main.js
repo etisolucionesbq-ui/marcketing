@@ -309,33 +309,27 @@ async function loadSite() {
 
   try {
 
-    const loadJson = async (apiPath, staticPath) => {
+    const loadJson = async (staticPath) => {
 
-      try {
+      const response = await fetch(staticPath);
 
-        const response = await fetch(apiPath);
-
-        if (response.ok) {
-          return await response.json();
-        }
-
-      } catch (error) {
-        console.warn("API fallback:", apiPath, error);
-      }
-
-      const fallback = await fetch(staticPath);
-
-      if (!fallback.ok) {
+      if (!response.ok) {
         throw new Error(`No se pudo cargar ${staticPath}`);
       }
 
-      return await fallback.json();
+      return await response.json();
     };
 
-    const [productsData, settingsData, bannersData] = await Promise.all([
-      loadJson("/api/products", "./data/products.json"),
-      loadJson("/api/settings", "./data/site-settings.json"),
-      loadJson("/api/banners", "./data/banners.json")
+    const [
+      productsData,
+      settingsData,
+      bannersData
+    ] = await Promise.all([
+
+      loadJson("./data/products.json"),
+      loadJson("./data/site-settings.json"),
+      loadJson("./data/banners.json")
+
     ]);
 
     const rawProducts =
